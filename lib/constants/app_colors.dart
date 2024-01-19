@@ -6,6 +6,15 @@ const Color searchBarColor = Color(0xff313131);
 const Color unSelectedBtnColor = Color(0xfffff4ee);
 // A9A9A9
 
-
+ LinearGradient myLinearGradient = LinearGradient(
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+  colors: [
+    Colors.transparent,
+    Colors.black.withOpacity(0.2367),
+    Colors.black,
+  ],
+  stops: [0.0, 0.2367, 1.0],
+);
 
 
