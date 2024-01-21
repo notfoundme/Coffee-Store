@@ -1,5 +1,6 @@
-import 'package:coffee_ecommerce/screens/home_screen.dart';
-import 'package:coffee_ecommerce/screens/onboarding_screen.dart';
+import 'package:coffee_ecommerce/screens/detail_screen.dart';
+// import 'package:coffee_ecommerce/screens/home_screen.dart';
+// import 'package:coffee_ecommerce/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: OnBoardingScreen(),
+      home: DetailScreen(),
     );
   }
 }
