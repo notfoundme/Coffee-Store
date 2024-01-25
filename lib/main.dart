@@ -1,4 +1,5 @@
-import 'package:coffee_ecommerce/screens/detail_screen.dart';
+import 'package:coffee_ecommerce/screens/order_screen.dart';
+import 'package:coffee_ecommerce/screens/temp.dart';
 // import 'package:coffee_ecommerce/screens/home_screen.dart';
 // import 'package:coffee_ecommerce/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: DetailScreen(),
+      home: OrderScreen(),
     );
   }
 }

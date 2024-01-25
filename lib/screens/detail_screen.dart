@@ -2,6 +2,7 @@ import 'package:coffee_ecommerce/constants/app_colors.dart';
 import 'package:coffee_ecommerce/constants/google_font.dart';
 import 'package:coffee_ecommerce/extensions/responsive_context.dart';
 import 'package:coffee_ecommerce/screens/order_screen.dart';
+import 'package:coffee_ecommerce/screens/temp.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -146,6 +147,8 @@ class DetailScreen extends StatelessWidget {
                     textAlign: TextAlign.start,
                   ),
                 ),
+
+                //
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -243,7 +246,7 @@ class DetailScreen extends StatelessWidget {
                       },
                       child: Container(
                         margin: const EdgeInsets.all(16),
-                        width: MediaQuery.of(context).size.width * 0.61,
+                        width: MediaQuery.of(context).size.width * 0.61 ,
                         decoration: BoxDecoration(
                           color: btnColor,
                           borderRadius: BorderRadius.circular(14),
