@@ -1,11 +1,8 @@
 import 'package:coffee_ecommerce/constants/app_colors.dart';
-import 'package:coffee_ecommerce/constants/google_font.dart';
 import 'package:coffee_ecommerce/extensions/responsive_context.dart';
 import 'package:coffee_ecommerce/screens/order_screen.dart';
-import 'package:coffee_ecommerce/screens/temp.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key});
@@ -22,7 +19,7 @@ class DetailScreen extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                image: DecorationImage(
+                image: const DecorationImage(
                     image: AssetImage(
                       "assets/singlecoffee.png",
                     ),
@@ -31,14 +28,17 @@ class DetailScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.3,
               width: MediaQuery.of(context).size.width,
             ),
+            SizedBox(
+              height: 10,
+            ),
 
             // Title and subtitle
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0, left: 4),
+                const Padding(
+                  padding: EdgeInsets.only(top: 8.0, left: 4),
                   child: Text(
                     "Cappucino",
                     style: TextStyle(
@@ -48,7 +48,7 @@ class DetailScreen extends StatelessWidget {
                     textAlign: TextAlign.start,
                   ),
                 ),
-                Text(
+                const Text(
                   "with chocolate",
                   style: TextStyle(
                       color: Colors.grey,
@@ -57,11 +57,15 @@ class DetailScreen extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
 
+                SizedBox(
+                  height: 10,
+                ),
+
                 //Row containing ratings and icons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         //rating icon
                         FaIcon(
@@ -70,7 +74,7 @@ class DetailScreen extends StatelessWidget {
                         ),
                         //Rating
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             "4.8",
                             style: TextStyle(
@@ -87,26 +91,26 @@ class DetailScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
                               color: unSelectedBtnColor,
                             ),
-                            child: FaIcon(
+                            child: const FaIcon(
                               FontAwesomeIcons.solidStar,
                               color: Color(0xfffbbe21),
                             ),
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             color: unSelectedBtnColor,
                           ),
-                          child: FaIcon(
+                          child: const FaIcon(
                             FontAwesomeIcons.solidStar,
                             color: Color(0xfffbbe21),
                           ),
@@ -117,27 +121,33 @@ class DetailScreen extends StatelessWidget {
                 ),
 
                 //description section
-                ExpansionTile(
-                  title: Text(
-                    'Description',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  children: [
-                    // Put your description content here
-                    Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-                      'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
-                      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                Theme(
+                  data: Theme.of(context)
+                      .copyWith(dividerColor: Colors.transparent),
+                  child: const ExpansionTile(
+                    title: Text(
+                      'Description',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
                     ),
-                  ],
+                    children: [
+                      // Put your description content here
+                      Text(
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+                        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+                        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                      ),
+                    ],
+                  ),
                 ),
-
+                SizedBox(
+                  height: 10,
+                ),
                 // size
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0, left: 4),
+                const Padding(
+                  padding: EdgeInsets.only(top: 8.0, left: 4),
                   child: Text(
                     "Size",
                     style: TextStyle(
@@ -154,14 +164,14 @@ class DetailScreen extends StatelessWidget {
                   children: [
                     Container(
                       width: context.width * 0.25,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: unSelectedBtnColor,
                         border: Border.all(color: Colors.grey),
                       ),
-                      child: Text(
+                      child: const Text(
                         "S",
                         style: TextStyle(
                             color: Colors.black,
@@ -172,14 +182,14 @@ class DetailScreen extends StatelessWidget {
                     ),
                     Container(
                       width: context.width * 0.25,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: unSelectedBtnColor,
                         border: Border.all(color: Colors.grey),
                       ),
-                      child: Text(
+                      child: const Text(
                         "M",
                         style: TextStyle(
                             color: Colors.black,
@@ -190,14 +200,14 @@ class DetailScreen extends StatelessWidget {
                     ),
                     Container(
                       width: context.width * 0.25,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: unSelectedBtnColor,
                         border: Border.all(color: Colors.grey),
                       ),
-                      child: Text(
+                      child: const Text(
                         "L",
                         style: TextStyle(
                             color: Colors.black,
@@ -208,13 +218,13 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 //price column
                 Row(
                   children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -241,12 +251,12 @@ class DetailScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => OrderScreen()),
+                              builder: (context) => const OrderScreen()),
                         );
                       },
                       child: Container(
                         margin: const EdgeInsets.all(16),
-                        width: MediaQuery.of(context).size.width * 0.61 ,
+                        width: MediaQuery.of(context).size.width * 0.61,
                         decoration: BoxDecoration(
                           color: btnColor,
                           borderRadius: BorderRadius.circular(14),
@@ -278,20 +288,20 @@ class DetailScreen extends StatelessWidget {
   AppBar detailScreenAppBar(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: FaIcon(FontAwesomeIcons.chevronLeft),
+        icon: const FaIcon(FontAwesomeIcons.chevronLeft),
         onPressed: () {
           // Handle the back button press
           Navigator.pop(context);
         },
       ),
-      title: Center(
+      title: const Center(
         child: Text(
           "Detail",
         ),
       ),
       actions: [
         IconButton(
-          icon: FaIcon(FontAwesomeIcons.heart),
+          icon: const FaIcon(FontAwesomeIcons.heart),
           onPressed: () {
             // Handle the favorite button press
           },

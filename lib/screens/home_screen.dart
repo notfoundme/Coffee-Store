@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        decoration: BoxDecoration(color: Colors.black),
+        decoration: const BoxDecoration(color: Colors.black),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Column(
@@ -18,7 +18,28 @@ class HomeScreen extends StatelessWidget {
                 height: 10,
               ),
               customHomeAppBar(context),
-              searchBar(context)
+              searchBar(context),
+
+              //Coffee Banner
+              SizedBox(
+                height: 20,
+              ),
+
+
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.asset(
+                      "assets/coffeebanner.png",
+                      height: context.height * 0.2,
+                      width: context.width * 0.88,
+                      fit: BoxFit.cover, // You can adjust the fit as needed
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -26,18 +47,21 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Container searchBar(BuildContext context) {
+  Widget searchBar(BuildContext context) {
     return Container(
-      width: context.width * 0.93,
+      padding: const EdgeInsets.all(4.0),
+      width: context.width * 0.9,
       decoration: BoxDecoration(
           color: searchBarColor, borderRadius: BorderRadius.circular(12)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Icon(
               Icons.search_rounded,
+              size: 30,
+              weight: 30,
               color: textColor,
             ),
           ),
@@ -55,8 +79,8 @@ class HomeScreen extends StatelessWidget {
                   // height: context.width * 0.1,
                   decoration: BoxDecoration(
                       color: btnColor, borderRadius: BorderRadius.circular(8)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.settings_input_component_rounded,
                       color: textColor,
@@ -64,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 4,
               ),
             ],

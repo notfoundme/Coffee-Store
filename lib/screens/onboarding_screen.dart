@@ -18,7 +18,7 @@ class OnBoardingScreen extends StatelessWidget {
               children: [
                 imageContainer(context),
 
-                // Middlte Texts
+                // Middle Texts
                 Positioned(
                   bottom: 20,
                   child: Column(
@@ -95,10 +95,7 @@ class OnBoardingScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        // Text(
-        //   "Hello hello",
-        //   style: TextStyle(color: Colors.red),
-        // ),
+       
 
         //small text
         Padding(

@@ -12,58 +12,18 @@ class OrderScreen extends StatelessWidget {
     return Scaffold(
       appBar: orderAppBar(context),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            //order Card
-            Card(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: context.width * 0.4,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: btnColor,
-                    ),
-                    child: const Text(
-                      "Deliver",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Container(
-                    width: context.width * 0.4,
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: const Color(0xfff2f2f2),
-                    ),
-                    child: const Text(
-                      "Pick up",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            SizedBox(
+              height: 10,
+            ), //order Card
+            deliverPickupCard(context),
             const SizedBox(
               height: 8,
             ),
-            //3texts
             const Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Delivery Address",
@@ -103,7 +63,9 @@ class OrderScreen extends StatelessWidget {
               ),
             ),
             const Divider(),
-
+            SizedBox(
+              height: 10,
+            ),
             //image card Increment Decrement
             singleCoffeeCountCard(context),
             const SizedBox(
@@ -112,101 +74,221 @@ class OrderScreen extends StatelessWidget {
 
             discountVoucherCard(context),
 
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                "Payment Summary",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600),
-                textAlign: TextAlign.start,
-              ),
-            ),
+            paymentSummaryMethod(),
 
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Price",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
-                ),
-                Text(
-                  "Rs. 400",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
-
-            //Delivery Fee row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "Delivery Fee",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
-                ),
                 Row(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: RichText(
-                        text: const TextSpan(
-                          text: 'Rs. 200',
-                          style: TextStyle(
-                            color: Colors.black, // Set your text color
-                            decoration: TextDecoration.lineThrough,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            // Set the strikethrough decoration
-                            decorationColor:
-                                Colors.red, // Set the strikethrough color
-                            decorationThickness:
-                                2.0, // Set the strikethrough thickness
-                          ),
+                      child: Icon(
+                        Icons.payments,
+                        color: btnColor,
+                        size: 30,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Card(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: context.width * 0.22,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 18, vertical: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: btnColor,
+                              ),
+                              child: const Text(
+                                "Cash",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Container(
+                              width: context.width * 0.22,
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(18),
+                                color: const Color(0xfff2f2f2),
+                              ),
+                              child: const Text(
+                                "\$ 500",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-
-                    //
-                    const Text(
-                      "Rs. 100",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600),
-                    ),
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.grey.shade600,
+                          borderRadius: BorderRadius.circular(25)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.more_horiz,
+                          color: Colors.white,
+                        ),
+                      )),
                 ),
               ],
             ),
-            const Divider(),
-            const SizedBox(
-              height: 8,
-            )
-            //Total Payment
-            ,
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Total Payment",
+            Container(
+              margin: const EdgeInsets.all(16),
+              width: MediaQuery.of(context).size.width * 0.9,
+              decoration: BoxDecoration(
+                color: btnColor,
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 8),
+                child: Text(
+                  "Order",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Card deliverPickupCard(BuildContext context) {
+    return Card(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: context.width * 0.4,
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: btnColor,
+            ),
+            child: const Text(
+              "Deliver",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Container(
+            width: context.width * 0.4,
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: const Color(0xfff2f2f2),
+            ),
+            child: const Text(
+              "Pick up",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Column paymentSummaryMethod() {
+    return Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text(
+            "Payment Summary",
+            style: TextStyle(
+                color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
+            textAlign: TextAlign.start,
+          ),
+        ),
+
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Price",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
+            Text(
+              "Rs. 400",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
+
+        //Delivery Fee row
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              "Delivery Fee",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'Rs. 200',
+                      style: TextStyle(
+                        color: Colors.grey.shade700,
+                        // Set your text color
+                        decoration: TextDecoration.lineThrough,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        // Set the strikethrough decoration
+                        decorationColor:
+                            Colors.red, // Set the strikethrough color
+                        decorationThickness:
+                            2.0, // Set the strikethrough thickness
+                      ),
+                    ),
+                  ),
+                ),
+
+                //
                 Text(
-                  "Rs. 500",
+                  "Rs. 100",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
@@ -214,15 +296,36 @@ class OrderScreen extends StatelessWidget {
                 ),
               ],
             ),
-
-            //Unknown Elements Row
-
-            Row(children: [
-              
-            ],)
           ],
         ),
-      ),
+        const SizedBox(
+          height: 8,
+        ),
+        const Divider(),
+        const SizedBox(
+          height: 8,
+        ),
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Total Payment",
+              style: TextStyle(
+                  color: Colors.grey.shade700,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500),
+            ),
+            Text(
+              "\$ 500",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800),
+            ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -266,16 +369,19 @@ class OrderScreen extends StatelessWidget {
     );
   }
 
-  Row singleCoffeeCountCard(BuildContext context) {
+  Widget singleCoffeeCountCard(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        singleCoffeeImage(context),
+        Row(
+          children: [
+            singleCoffeeImage(context),
 
-        // number of coffee cart
-        titleAndSubtitleColumn(),
-
+            // number of coffee cart
+            titleAndSubtitleColumn(),
+          ],
+        ),
         const Row(
           children: [
             CircleAvatar(
@@ -373,3 +479,4 @@ class OrderScreen extends StatelessWidget {
 }
 
 
+// 
